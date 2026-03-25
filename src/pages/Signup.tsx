@@ -43,10 +43,10 @@ export default function Signup() {
 
   if (sent) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4 bg-surface">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-primary">Check your email</CardTitle>
+            <CardTitle className="text-2xl font-extrabold font-headline text-primary italic">Check your email</CardTitle>
             <CardDescription>
               We sent a confirmation link to <strong>{email}</strong>. Click the link to activate your account.
             </CardDescription>
@@ -62,10 +62,10 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-primary">Cadence Trades</CardTitle>
+          <CardTitle className="text-2xl font-extrabold font-headline text-primary italic">Cadence Trades</CardTitle>
           <CardDescription>Create your account</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -110,7 +110,7 @@ export default function Signup() {
             <Button type="submit" className="w-full" disabled={submitting}>
               {submitting ? 'Creating account...' : 'Create account'}
             </Button>
-            <Link to="/login" className="text-sm text-muted-foreground hover:underline">
+            <Link to="/login" className="text-sm text-on-surface-variant hover:underline">
               Already have an account? Sign in
             </Link>
           </CardFooter>

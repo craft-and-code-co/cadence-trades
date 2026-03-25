@@ -47,7 +47,7 @@ export function CsvUploadStep({ importType, onTypeChange, onFileParsed }: Props)
     <div className="space-y-6">
       {/* Import type selector */}
       <div className="space-y-2">
-        <p className="text-sm font-medium text-foreground">What are you importing?</p>
+        <p className="text-sm font-medium text-on-surface">What are you importing?</p>
         <div className="grid grid-cols-3 gap-2">
           {IMPORT_TYPE_OPTIONS.map((opt) => (
             <button
@@ -55,8 +55,8 @@ export function CsvUploadStep({ importType, onTypeChange, onFileParsed }: Props)
               onClick={() => onTypeChange(opt.value)}
               className={`rounded-lg border px-3 py-2 text-left text-sm transition-colors ${
                 importType === opt.value
-                  ? 'border-primary bg-primary/10 text-foreground'
-                  : 'border-border bg-card text-muted-foreground hover:border-muted-foreground'
+                  ? 'border-primary bg-primary/10 text-on-surface'
+                  : 'border-outline-variant/20 bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
               }`}
             >
               <p className="font-medium">{opt.label}</p>
@@ -90,19 +90,19 @@ export function CsvUploadStep({ importType, onTypeChange, onFileParsed }: Props)
         className={`flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed p-10 cursor-pointer transition-colors ${
           dragActive
             ? 'border-primary bg-primary/10'
-            : 'border-border bg-card hover:border-muted-foreground'
+            : 'border-outline-variant/20 bg-surface-container hover:bg-surface-container-high'
         }`}
       >
         {dragActive ? (
           <FileText className="h-10 w-10 text-primary" />
         ) : (
-          <Upload className="h-10 w-10 text-muted-foreground" />
+          <Upload className="h-10 w-10 text-on-surface-variant" />
         )}
         <div className="text-center">
-          <p className="font-medium text-foreground">
+          <p className="font-medium text-on-surface">
             {dragActive ? 'Drop your file here' : 'Drag & drop your CSV file'}
           </p>
-          <p className="text-sm text-muted-foreground">or click to browse (max 10MB)</p>
+          <p className="text-sm text-on-surface-variant">or click to browse (max 10MB)</p>
         </div>
       </div>
 

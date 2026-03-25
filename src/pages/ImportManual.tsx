@@ -71,12 +71,12 @@ export default function ImportManual() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-surface">
       <div className="w-full max-w-4xl space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Add Jobs Manually</h1>
-            <p className="text-sm text-muted-foreground mt-1">
+            <h1 className="text-2xl font-extrabold font-headline text-on-surface">Add Jobs Manually</h1>
+            <p className="text-sm text-on-surface-variant mt-1">
               Add your recent jobs one at a time. Date and revenue are required.
             </p>
           </div>

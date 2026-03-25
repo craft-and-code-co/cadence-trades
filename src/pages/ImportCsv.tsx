@@ -29,11 +29,11 @@ export default function ImportCsv() {
   const typeLabel = IMPORT_TYPE_OPTIONS.find((t) => t.value === state.importType)?.label ?? 'Data'
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-surface">
       <div className="w-full max-w-2xl space-y-6">
         {/* Progress */}
         <div className="space-y-2">
-          <div className="flex justify-between text-xs text-muted-foreground">
+          <div className="flex justify-between text-xs text-on-surface-variant">
             <span>{STEP_LABELS[stepIndex]}</span>
             <span>Step {stepIndex + 1} of {STEP_LABELS.length}</span>
           </div>
@@ -49,7 +49,7 @@ export default function ImportCsv() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-extrabold font-headline text-on-surface">
           {state.step === 'confirmation' ? 'Import Complete' : `Import ${typeLabel}`}
         </h1>
 

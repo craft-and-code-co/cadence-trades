@@ -15,7 +15,7 @@ export function StepCurrentTools({ data, onChange }: Props) {
         <Label htmlFor="field_service_platform">Field service software</Label>
         <select
           id="field_service_platform"
-          className="flex h-10 w-full rounded-md border border-input bg-input px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex h-10 w-full rounded-lg border-0 border-b-2 border-b-transparent bg-surface-container-highest px-3 py-2 text-sm text-on-surface outline-none focus:border-b-primary-container"
           value={data.field_service_platform}
           onChange={(e) =>
             onChange({
@@ -46,7 +46,7 @@ export function StepCurrentTools({ data, onChange }: Props) {
         <Label htmlFor="runs_paid_ads">Paid advertising?</Label>
         <select
           id="runs_paid_ads"
-          className="flex h-10 w-full rounded-md border border-input bg-input px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex h-10 w-full rounded-lg border-0 border-b-2 border-b-transparent bg-surface-container-highest px-3 py-2 text-sm text-on-surface outline-none focus:border-b-primary-container"
           value={data.runs_paid_ads}
           onChange={(e) =>
             onChange({ runs_paid_ads: e.target.value as OnboardingData['runs_paid_ads'] })

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Cadence Trades</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#222a3d",
+              "tertiary": "#bdcee7",
+              "error": "#ffb4ab",
+              "surface-variant": "#2d3449",
+              "surface-tint": "#ffb95f",
+              "on-background": "#dae2fd",
+              "surface": "#0b1326",
+              "on-secondary-container": "#aeb9d0",
+              "secondary-fixed": "#d8e3fb",
+              "background": "#0b1326",
+              "on-tertiary-fixed-variant": "#38485d",
+              "on-primary-fixed-variant": "#653e00",
+              "primary-fixed": "#ffddb8",
+              "outline-variant": "#534434",
+              "surface-bright": "#31394d",
+              "on-tertiary-fixed": "#0b1c30",
+              "error-container": "#93000a",
+              "secondary-container": "#3e495d",
+              "on-surface-variant": "#d8c3ad",
+              "on-error": "#690005",
+              "primary": "#ffc174",
+              "on-secondary": "#263143",
+              "secondary-fixed-dim": "#bcc7de",
+              "inverse-on-surface": "#283044",
+              "on-primary-container": "#613b00",
+              "surface-container-lowest": "#060e20",
+              "primary-fixed-dim": "#ffb95f",
+              "inverse-primary": "#855300",
+              "outline": "#a08e7a",
+              "on-tertiary": "#213145",
+              "tertiary-container": "#a2b2cb",
+              "on-surface": "#dae2fd",
+              "on-tertiary-container": "#35455a",
+              "surface-container-highest": "#2d3449",
+              "tertiary-fixed-dim": "#b7c8e1",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#131b2e",
+              "on-secondary-fixed-variant": "#3c475a",
+              "primary-container": "#f59e0b",
+              "tertiary-fixed": "#d3e4fe",
+              "inverse-surface": "#dae2fd",
+              "surface-dim": "#0b1326",
+              "on-primary": "#472a00",
+              "secondary": "#bcc7de",
+              "on-secondary-fixed": "#111c2d",
+              "on-primary-fixed": "#2a1700",
+              "surface-container": "#171f33"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .brand-accent-line {
+        height: 2px;
+        background-color: #f59e0b;
+        display: inline-block;
+        width: 12px;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col h-full py-8 px-4 h-full w-64 fixed left-0 top-0 bg-[#131b2e] dark:bg-slate-900 border-r-0 z-40">
+<div class="mb-12 px-4">
+<h1 class="text-xl font-black tracking-tight text-[#ffb95f] dark:text-amber-400 font-headline">
+                Cadence <span class="uppercase">Trades</span>
+</h1>
+<p class="text-xs text-slate-400 font-medium mt-1">Chief of Staff</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Weekly Briefing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Coach Chat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#ffb95f] font-bold border-r-4 border-[#ffb95f] bg-white/5 rounded-none active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                New Inquiry
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="flex justify-end items-center w-full px-8 py-4 sticky top-0 z-30 ml-64 bg-surface/80 backdrop-blur-md">
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:opacity-80 transition-all flex items-center">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+</button>
+<button class="text-slate-400 hover:opacity-80 transition-all relative flex items-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary-container rounded-full"></span>
+</button>
+<div class="flex items-center gap-3">
+<img alt="Josh's profile picture" class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait of Josh, Chief of Staff, wearing a dark blazer in a modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVgXE5sL0dE-w0YzTFFjuMukskiJKTpAfxP592FwXnZZeZs4fVyQe1RKd7BpfO5nFSIT5Up-my2qm4tjfnRIqk29jCe_ffTKQLisynQUKKfx7YtqJ-LSQZigjo_F86rWYZx27PO-hh6bLT8VoqyKMalMFib6o2SgHmK1FYyrtnolxy4DaAgDPyWmI-MO6hATmrbcnC1wt8QW794mUoG3fEFkc-xbNIaV9CGl9V16k5rFH6vKm6NYbatq6qrv001Kmekg9QdbNITE5A"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 min-h-screen bg-surface">
+<div class="max-w-5xl mx-auto">
+<header class="mb-12">
+<h2 class="text-4xl font-extrabold tracking-tight font-headline text-on-surface mb-2">Account Settings</h2>
+<p class="text-on-surface-variant font-medium">Manage your operational preferences and connected data ecosystems.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Left Column: Navigation & Profile -->
+<div class="lg:col-span-1 space-y-8">
+<section class="bg-surface-container rounded-xl p-8 space-y-6">
+<div class="flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-primary-container to-surface mb-4">
+<img alt="Company Avatar" class="w-full h-full rounded-full object-cover" data-alt="Modern company headquarters exterior with clean architectural lines and glass windows at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXKGym3Shh8Kt54YdQGS4twQ-mGS9DPU_ko3nbqY1GqzWTtDu-h-xtwgsBOJWbhN1xq2_u2yu9WFvixj-x3gmG7LbbtZJPBbUpVHOo2LNab94R_BuVmH-UpUe281TQnBMh6VLDtvP27Vq1dlKx-ZTYY-vmoomrF24_yZwJusHcYsdzHIYfzyaSdRK_Tcqh3yl1jc3z3Yd6lApQiaC-bLDVxCB5nxiaeE_ZEHc35_jM900k3wEZr9WQ8kfYA4x4SYyVNzmrO6G_yNx2"/>
+</div>
+<h3 class="text-xl font-bold font-headline">Backflow Pros LLC</h3>
+<p class="text-label-md text-primary-fixed-dim uppercase tracking-widest mt-1">Industrial Operations</p>
+</div>
+<div class="pt-6 border-t border-outline-variant/15 space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Status</span>
+<span class="flex items-center gap-2 text-sm font-semibold text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Operational
+                                </span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Plan</span>
+<span class="text-sm font-semibold">Scale Tier</span>
+</div>
+</div>
+</section>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-high rounded-xl text-primary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+                            General Info
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-colors rounded-xl text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+                            Security
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 hover:bg-surface-container transition-colors rounded-xl text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                            Integrations
+                        </a>
+</nav>
+</div>
+<!-- Right Column: Settings Sections -->
+<div class="lg:col-span-2 space-y-12">
+<!-- Company Profile Section -->
+<section id="company-profile">
+<h4 class="text-lg font-bold font-headline mb-6 flex items-center gap-2">
+                            Company Profile
+                            <span class="h-[2px] w-8 bg-primary-container/30"></span>
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 bg-surface-container-low rounded-xl">
+<label class="text-xs font-semibold uppercase tracking-wider text-outline mb-2 block">Primary Trade</label>
+<p class="text-xl font-bold text-on-surface">Backflow</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<label class="text-xs font-semibold uppercase tracking-wider text-outline mb-2 block">Technician Count</label>
+<p class="text-xl font-bold text-on-surface">2 Active</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl md:col-span-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-outline mb-2 block">Revenue Range</label>
+<div class="flex items-end justify-between">
+<p class="text-2xl font-black font-headline text-primary-fixed-dim">$500k – $1M</p>
+<span class="text-xs text-on-surface-variant pb-1 italic">Annual Projection</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-2/3"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Account Section -->
+<section id="account">
+<h4 class="text-lg font-bold font-headline mb-6 flex items-center gap-2">
+                            Account Access
+                            <span class="h-[2px] w-8 bg-primary-container/30"></span>
+</h4>
+<div class="bg-surface-container rounded-xl overflow-hidden">
+<div class="p-8 space-y-8">
+<div class="group">
+<label class="text-xs font-semibold uppercase tracking-wider text-outline mb-1 block">Email Address</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary-container focus:ring-0 text-on-surface px-0 py-3 transition-all placeholder-on-surface-variant/50" readonly="" type="email" value="josh@backflowpros.com"/>
+</div>
+<div class="group">
+<label class="text-xs font-semibold uppercase tracking-wider text-outline mb-1 block">Password</label>
+<div class="flex items-center justify-between border-b-2 border-transparent focus-within:border-primary-container bg-surface-container-highest px-0 transition-all">
+<input class="bg-transparent border-0 focus:ring-0 text-on-surface py-3 w-full" readonly="" type="password" value="••••••••••••"/>
+<button class="text-primary text-sm font-bold px-4 hover:underline">Change</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Sources Section -->
+<section id="data-sources">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-lg font-bold font-headline flex items-center gap-2">
+                                Data Sources
+                                <span class="h-[2px] w-8 bg-primary-container/30"></span>
+</h4>
+<button class="text-xs font-bold text-primary uppercase tracking-widest hover:opacity-80 transition-opacity">Add Integration</button>
+</div>
+<div class="bg-surface-container-low rounded-xl p-8 flex items-center gap-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
+<div class="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="cable">cable</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h5 class="text-xl font-bold">Jobber</h5>
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-black uppercase rounded tracking-tighter">Connected</span>
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant font-medium">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                                        Last Sync: 4h ago
+                                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="dataset">dataset</span>
+                                        2.4k Records
+                                    </span>
+</div>
+</div>
+<button class="px-4 py-2 bg-surface-container-highest hover:bg-surface-variant transition-colors rounded-lg text-sm font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="settings_input_component">settings_input_component</span>
+                                Configure
+                            </button>
+</div>
+<div class="mt-8 flex justify-end gap-4">
+<button class="px-8 py-3 text-on-surface-variant font-bold hover:text-on-surface transition-colors">Discard</button>
+<button class="px-10 py-3 bg-primary-container text-on-primary-container font-extrabold rounded-xl shadow-lg hover:brightness-110 transition-all">Save Changes</button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>

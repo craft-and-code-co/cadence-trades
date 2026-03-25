@@ -91,12 +91,12 @@ export function CsvSummaryStep({
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-border bg-card p-5 space-y-3">
-        <p className="text-lg font-semibold text-foreground">
+      <div className="rounded-lg border border-outline-variant/20 bg-surface-container p-5 space-y-3">
+        <p className="text-lg font-semibold text-on-surface">
           Ready to import {validCount} {label}
         </p>
         {file && (
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-on-surface-variant">
             From: {file.name} ({(file.size / 1024).toFixed(1)} KB)
           </p>
         )}

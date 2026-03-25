@@ -63,7 +63,7 @@ export function StepTeamStructure({ data, onChange }: Props) {
       <div className="space-y-2">
         <Label htmlFor="avg_tech_hourly_cost">Average tech hourly cost (fully burdened)</Label>
         <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">
             $
           </span>
           <Input
@@ -77,7 +77,7 @@ export function StepTeamStructure({ data, onChange }: Props) {
             onChange={(e) => onChange({ avg_tech_hourly_cost: e.target.value })}
           />
         </div>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-on-surface-variant">
           Include wages, benefits, vehicle, insurance — not sure? Leave blank and we'll estimate.
         </p>
       </div>

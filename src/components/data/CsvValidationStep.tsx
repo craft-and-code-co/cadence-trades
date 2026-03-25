@@ -18,17 +18,17 @@ export function CsvValidationStep({ totalRows, issues, onContinue, onBack }: Pro
     <div className="space-y-6">
       {/* Summary cards */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="rounded-lg border border-border bg-card p-4 text-center">
-          <p className="text-2xl font-bold text-foreground">{totalRows}</p>
-          <p className="text-xs text-muted-foreground">Total rows</p>
+        <div className="rounded-lg border border-outline-variant/20 bg-surface-container p-4 text-center">
+          <p className="text-2xl font-bold text-on-surface">{totalRows}</p>
+          <p className="text-xs text-on-surface-variant">Total rows</p>
         </div>
-        <div className="rounded-lg border border-border bg-card p-4 text-center">
+        <div className="rounded-lg border border-outline-variant/20 bg-surface-container p-4 text-center">
           <p className="text-2xl font-bold text-destructive">{errors.length}</p>
-          <p className="text-xs text-muted-foreground">Errors</p>
+          <p className="text-xs text-on-surface-variant">Errors</p>
         </div>
-        <div className="rounded-lg border border-border bg-card p-4 text-center">
+        <div className="rounded-lg border border-outline-variant/20 bg-surface-container p-4 text-center">
           <p className="text-2xl font-bold text-primary">{warnings.length}</p>
-          <p className="text-xs text-muted-foreground">Warnings</p>
+          <p className="text-xs text-on-surface-variant">Warnings</p>
         </div>
       </div>
 
@@ -41,12 +41,12 @@ export function CsvValidationStep({ totalRows, issues, onContinue, onBack }: Pro
           </p>
           <div className="max-h-48 overflow-y-auto rounded border border-destructive/30 bg-destructive/5 p-3 space-y-1">
             {errors.slice(0, 20).map((issue, i) => (
-              <p key={i} className="text-xs text-foreground">
+              <p key={i} className="text-xs text-on-surface">
                 Row {issue.row}: {issue.message} ({issue.field})
               </p>
             ))}
             {errors.length > 20 && (
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-on-surface-variant">
                 ...and {errors.length - 20} more errors
               </p>
             )}
@@ -63,12 +63,12 @@ export function CsvValidationStep({ totalRows, issues, onContinue, onBack }: Pro
           </p>
           <div className="max-h-48 overflow-y-auto rounded border border-primary/30 bg-primary/5 p-3 space-y-1">
             {warnings.slice(0, 20).map((issue, i) => (
-              <p key={i} className="text-xs text-foreground">
+              <p key={i} className="text-xs text-on-surface">
                 Row {issue.row}: {issue.message} ({issue.field})
               </p>
             ))}
             {warnings.length > 20 && (
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs text-on-surface-variant">
                 ...and {warnings.length - 20} more warnings
               </p>
             )}

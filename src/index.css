@@ -1,116 +1,184 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
+@import "@fontsource-variable/manrope";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
+    /* ===== Typography ===== */
+    --font-headline: 'Manrope Variable', 'Manrope', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* ===== Shadcn token mapping ===== */
     --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
-    /* Cadence custom colors */
-    --color-amber: var(--amber);
-    --color-amber-foreground: var(--amber-foreground);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* ===== Iron Amber custom tokens ===== */
+    --color-surface: var(--surface);
+    --color-surface-container-lowest: var(--surface-container-lowest);
+    --color-surface-container-low: var(--surface-container-low);
+    --color-surface-container: var(--surface-container);
+    --color-surface-container-high: var(--surface-container-high);
+    --color-surface-container-highest: var(--surface-container-highest);
+    --color-on-surface: var(--on-surface);
+    --color-on-surface-variant: var(--on-surface-variant);
+    --color-outline-variant: var(--outline-variant);
+    --color-primary-container: var(--primary-container);
+    --color-on-primary-container: var(--on-primary-container);
+    --color-amber: var(--primary-container);
+    --color-amber-foreground: var(--on-primary-container);
     --color-success: var(--success);
     --color-success-foreground: var(--success-foreground);
-    --color-warning: var(--warning);
-    --color-warning-foreground: var(--warning-foreground);
+    --color-error: var(--error);
+    --color-tertiary: var(--tertiary);
+
+    /* ===== Sidebar ===== */
+    --color-sidebar: var(--surface-container-lowest);
+    --color-sidebar-foreground: var(--on-surface);
+    --color-sidebar-primary: var(--primary-container);
+    --color-sidebar-primary-foreground: var(--on-primary-container);
+    --color-sidebar-accent: var(--surface-container);
+    --color-sidebar-accent-foreground: var(--on-surface);
+    --color-sidebar-border: transparent;
+    --color-sidebar-ring: var(--primary-container);
+
+    /* ===== Charts ===== */
+    --color-chart-1: var(--primary-container);
+    --color-chart-2: var(--primary);
+    --color-chart-3: var(--tertiary);
+    --color-chart-4: var(--on-surface-variant);
+    --color-chart-5: var(--surface-container-high);
+
+    /* ===== Radius ===== */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-4xl: 2rem;
 }
 
-/* Cadence Trades — Dark Navy + Amber/Gold design system
-   Dark-first: the app defaults to dark navy. */
+/*
+ * Iron Amber — "The Financial Architect"
+ * Dark-first. Tonal surfaces. No-line rule.
+ */
 :root {
-    /* Dark navy base */
-    --background: oklch(0.15 0.02 260);          /* #0F172A navy */
-    --foreground: oklch(0.95 0.01 260);           /* light gray text */
-    --card: oklch(0.20 0.02 260);                 /* slightly lighter navy */
-    --card-foreground: oklch(0.95 0.01 260);
-    --popover: oklch(0.20 0.02 260);
-    --popover-foreground: oklch(0.95 0.01 260);
-    /* Amber/gold as primary */
-    --primary: oklch(0.80 0.16 85);               /* #F59E0B amber-500 */
-    --primary-foreground: oklch(0.15 0.02 260);   /* dark navy on amber */
-    --secondary: oklch(0.25 0.02 260);            /* darker navy */
-    --secondary-foreground: oklch(0.85 0.01 260);
-    --muted: oklch(0.22 0.02 260);
-    --muted-foreground: oklch(0.65 0.01 260);     /* subdued text */
-    --accent: oklch(0.80 0.16 85);                /* amber accent */
-    --accent-foreground: oklch(0.15 0.02 260);
-    --destructive: oklch(0.60 0.20 25);           /* muted red */
-    --border: oklch(0.30 0.02 260);               /* subtle navy border */
-    --input: oklch(0.25 0.02 260);
-    --ring: oklch(0.80 0.16 85);                  /* amber ring */
-    /* Charts */
-    --chart-1: oklch(0.80 0.16 85);              /* amber */
-    --chart-2: oklch(0.70 0.12 85);              /* darker amber */
-    --chart-3: oklch(0.60 0.08 260);             /* navy mid */
-    --chart-4: oklch(0.50 0.06 260);
-    --chart-5: oklch(0.40 0.04 260);
-    --radius: 0.625rem;
-    /* Sidebar */
-    --sidebar: oklch(0.12 0.02 260);             /* darkest navy */
-    --sidebar-foreground: oklch(0.85 0.01 260);
-    --sidebar-primary: oklch(0.80 0.16 85);      /* amber */
-    --sidebar-primary-foreground: oklch(0.15 0.02 260);
-    --sidebar-accent: oklch(0.20 0.02 260);
-    --sidebar-accent-foreground: oklch(0.95 0.01 260);
-    --sidebar-border: oklch(0.25 0.02 260);
-    --sidebar-ring: oklch(0.80 0.16 85);
-    /* Cadence custom tokens */
-    --amber: oklch(0.80 0.16 85);
-    --amber-foreground: oklch(0.15 0.02 260);
-    --success: oklch(0.70 0.15 150);             /* green for positive trends */
-    --success-foreground: oklch(0.15 0.02 260);
-    --warning: oklch(0.80 0.16 85);              /* amber for warnings */
-    --warning-foreground: oklch(0.15 0.02 260);
+    /* === Tonal Surface Hierarchy === */
+    --surface-container-lowest: #060E20;     /* deepest void */
+    --surface:                  #0B1326;     /* page background */
+    --surface-container-low:    #131B2E;     /* sidebar, subtle sections */
+    --surface-container:        #171F33;     /* primary cards */
+    --surface-container-high:   #222A3D;     /* raised elements */
+    --surface-container-highest:#2D3449;     /* inputs, modals */
+
+    /* === On-Surface Text === */
+    --on-surface:               #DAE2FD;     /* primary text */
+    --on-surface-variant:       #94A3B8;     /* secondary/muted text */
+    --outline-variant:          #3F444D;     /* ghost borders (use at 15% max) */
+
+    /* === Primary Amber Spectrum === */
+    --primary-container:        #F59E0B;     /* bold amber CTA */
+    --primary:                  #FFC174;     /* softer amber for text highlights */
+    --on-primary:               #472A00;     /* text on amber bg */
+    --on-primary-container:     #613B00;     /* text on bold amber bg */
+
+    /* === Shadcn token bridge === */
+    --background:       #0B1326;
+    --foreground:       #DAE2FD;
+    --card:             #171F33;
+    --card-foreground:  #DAE2FD;
+    --popover:          #222A3D;
+    --popover-foreground: #DAE2FD;
+    --primary-foreground: #613B00;
+    --secondary:        #3E495D;
+    --secondary-foreground: #BCC7DE;
+    --muted:            #131B2E;
+    --muted-foreground: #94A3B8;
+    --accent:           #F59E0B;
+    --accent-foreground: #613B00;
+    --destructive:      #FF5449;
+    --border:           transparent;          /* No-line rule: transparent by default */
+    --input:            #2D3449;
+    --ring:             #F59E0B;
+
+    /* === Semantic colors === */
+    --success:          #34D399;
+    --success-foreground: #064E3B;
+    --error:            #FF5449;
+    --tertiary:         #80DEEA;
+
+    --radius: 0.5rem;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-surface text-on-surface font-body antialiased;
+    }
+    html {
+        @apply font-body;
+    }
+
+    /* Material Symbols baseline */
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+}
+
+@layer utilities {
+    /* Headline typography */
+    .font-headline {
+        font-family: var(--font-headline);
+        letter-spacing: -0.02em;
+    }
+
+    /* Ghost border — 15% opacity max per design spec */
+    .ghost-border {
+        border: 1px solid color-mix(in srgb, var(--outline-variant) 15%, transparent);
+    }
+
+    /* Tonal card — no borders, just background shift */
+    .tonal-card {
+        background-color: var(--surface-container);
+        border-radius: var(--radius-lg);
+    }
+
+    /* Tonal card raised */
+    .tonal-card-raised {
+        background-color: var(--surface-container-high);
+        border-radius: var(--radius-lg);
+    }
+
+    /* Glassmorphic surface */
+    .glass-surface {
+        background-color: color-mix(in srgb, var(--surface) 80%, transparent);
+        backdrop-filter: blur(20px);
+    }
 }

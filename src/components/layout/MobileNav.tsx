@@ -1,37 +1,36 @@
-import { Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, MessageCircle, Settings } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { NavLink } from 'react-router-dom'
+import { Icon } from '@/components/ui/icon'
 
-const navItems = [
-  { to: '/', label: 'Briefing', icon: LayoutDashboard },
-  { to: '/coach', label: 'Coach', icon: MessageCircle },
-  { to: '/settings', label: 'Settings', icon: Settings },
+const NAV_ITEMS = [
+  { to: '/', icon: 'dashboard', label: 'Briefing' },
+  { to: '/coach', icon: 'forum', label: 'Coach' },
+  { to: '/insights', icon: 'analytics', label: 'Insights' },
+  { to: '/settings', icon: 'settings', label: 'Settings' },
 ]
 
 export function MobileNav() {
-  const location = useLocation()
-
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 bg-sidebar border-t border-sidebar-border z-50">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 bg-surface-container-low z-50 glass-surface">
       <div className="flex justify-around py-2">
-        {navItems.map(({ to, label, icon: Icon }) => {
-          const active = location.pathname === to
-          return (
-            <Link
-              key={to}
-              to={to}
-              className={cn(
-                'flex flex-col items-center gap-1 px-3 py-1 text-xs font-medium transition-colors',
-                active
-                  ? 'text-sidebar-primary'
-                  : 'text-sidebar-foreground'
-              )}
-            >
-              <Icon className="h-5 w-5" />
-              {label}
-            </Link>
-          )
-        })}
+        {NAV_ITEMS.map(({ to, icon, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={to === '/'}
+            className={({ isActive }) =>
+              `flex flex-col items-center gap-1 px-3 py-1.5 text-[10px] font-medium transition-colors ${
+                isActive ? 'text-primary' : 'text-on-surface-variant'
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                <Icon name={icon} filled={isActive} size={22} />
+                {label}
+              </>
+            )}
+          </NavLink>
+        ))}
       </div>
     </nav>
   )

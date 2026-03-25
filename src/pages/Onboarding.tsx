@@ -97,11 +97,11 @@ export default function Onboarding() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-surface">
       <div className="w-full max-w-lg space-y-6">
         <OnboardingProgress currentStep={step} />
 
-        <h1 className="text-2xl font-bold text-foreground">{STEP_TITLES[step]}</h1>
+        <h1 className="text-2xl font-extrabold font-headline text-on-surface">{STEP_TITLES[step]}</h1>
 
         {step === 0 && <StepBusinessBasics data={data} onChange={update} />}
         {step === 1 && <StepTeamStructure data={data} onChange={update} />}

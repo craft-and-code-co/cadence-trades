@@ -14,17 +14,17 @@ export function CsvConfirmationStep({ importedCount, onImportAnother, onFinish }
       <CheckCircle className="h-14 w-14 text-success mx-auto" />
 
       <div className="space-y-2">
-        <p className="text-xl font-bold text-foreground">
+        <p className="text-xl font-bold text-on-surface">
           {importedCount} jobs imported successfully
         </p>
 
         {importedCount < MIN_JOBS_THRESHOLD && (
           <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
-            <p className="text-sm text-foreground">
+            <p className="text-sm text-on-surface">
               You have <strong>{importedCount}</strong> jobs. We need at least{' '}
               <strong>{MIN_JOBS_THRESHOLD}</strong> to generate specific insights.
             </p>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="text-xs text-on-surface-variant mt-1">
               Keep logging jobs or import another file to unlock your full coaching experience.
             </p>
           </div>

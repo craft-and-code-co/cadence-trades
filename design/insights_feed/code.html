@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#222a3d",
+              "tertiary": "#bdcee7",
+              "error": "#ffb4ab",
+              "surface-variant": "#2d3449",
+              "surface-tint": "#ffb95f",
+              "on-background": "#dae2fd",
+              "surface": "#0b1326",
+              "on-secondary-container": "#aeb9d0",
+              "secondary-fixed": "#d8e3fb",
+              "background": "#0b1326",
+              "on-tertiary-fixed-variant": "#38485d",
+              "on-primary-fixed-variant": "#653e00",
+              "primary-fixed": "#ffddb8",
+              "outline-variant": "#534434",
+              "surface-bright": "#31394d",
+              "on-tertiary-fixed": "#0b1c30",
+              "error-container": "#93000a",
+              "secondary-container": "#3e495d",
+              "on-surface-variant": "#d8c3ad",
+              "on-error": "#690005",
+              "primary": "#ffc174",
+              "on-secondary": "#263143",
+              "secondary-fixed-dim": "#bcc7de",
+              "inverse-on-surface": "#283044",
+              "on-primary-container": "#613b00",
+              "surface-container-lowest": "#060e20",
+              "primary-fixed-dim": "#ffb95f",
+              "inverse-primary": "#855300",
+              "outline": "#a08e7a",
+              "on-tertiary": "#213145",
+              "tertiary-container": "#a2b2cb",
+              "on-surface": "#dae2fd",
+              "on-tertiary-container": "#35455a",
+              "surface-container-highest": "#2d3449",
+              "tertiary-fixed-dim": "#b7c8e1",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#131b2e",
+              "on-secondary-fixed-variant": "#3c475a",
+              "primary-container": "#f59e0b",
+              "tertiary-fixed": "#d3e4fe",
+              "inverse-surface": "#dae2fd",
+              "surface-dim": "#0b1326",
+              "on-primary": "#472a00",
+              "secondary": "#bcc7de",
+              "on-secondary-fixed": "#111c2d",
+              "on-primary-fixed": "#2a1700",
+              "surface-container": "#171f33"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #0b1326;
+      }
+    </style>
+</head>
+<body class="font-body text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="flex flex-col h-full py-8 px-4 h-full w-64 fixed left-0 top-0 border-r-0 bg-[#131b2e] dark:bg-slate-900 z-50">
+<div class="mb-10 px-2 flex flex-col gap-0.5">
+<h1 class="text-xl font-black tracking-tight text-[#ffb95f] dark:text-amber-400 font-headline">
+                Cadence <span class="uppercase">Trades</span>
+</h1>
+<div class="w-4 h-[2px] bg-primary-container mt-[-2px] ml-[54px]"></div> <!-- Geometric accent under E in Cadence -->
+<p class="text-[10px] text-slate-500 font-medium uppercase tracking-[0.2em] mt-2">Chief of Staff</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Weekly Briefing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-sm">Coach Chat</span>
+</a>
+<!-- Active State: Insights -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#ffb95f] font-bold border-r-4 border-[#ffb95f] bg-white/5 transition-all active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-sm">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:bg-white/10 hover:text-white transition-all rounded-xl group active:scale-[0.98] duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-white/5">
+<button class="w-full py-3 px-4 bg-primary-container text-on-primary-container font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-sm">New Inquiry</span>
+</button>
+<div class="mt-6 flex items-center gap-3 px-2">
+<img class="w-10 h-10 rounded-full object-cover grayscale opacity-80" data-alt="portrait of a professional male executive with a confident expression in a high-end corporate office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3xwBx5lvseoYv-_iQoKdlZZufL2dtNxl3qnmGwvHHa4xkoyGXlzVm71gJzb4OHMldoMe2j2rGLpmUrinG08iVXkcYIThkPzVi_-iDIi61bV8R2t289gM4F6jK3ElnW_hStsgGjLLxSKkWexbcvbcrTslZdF-VoLi0YtcVMKO9jFy7WgnnP9NV4rAZQfOkj0dRHwa1VLyv_7xyT-uVmAe-IkFlZft3-B6bHx8lTfmIAwjKOOv9i1Ym2NPeg1WLf6RZ89dthLpnTR6F"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface">Josh</span>
+<span class="text-[10px] text-slate-500">View Profile</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-end items-center w-full px-8 py-4 sticky top-0 z-40 bg-[#0b1326]/80 backdrop-blur-xl">
+<div class="flex items-center gap-6">
+<button class="text-slate-400 hover:opacity-80 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">sync</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Sync Data</span>
+</button>
+<div class="w-[1px] h-4 bg-white/10"></div>
+<button class="relative text-slate-400 hover:opacity-80 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary-container rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Insights Page Content -->
+<div class="max-w-6xl mx-auto px-8 py-12">
+<!-- Page Header -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="w-8 h-1 bg-primary-container"></span>
+<span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary-fixed-dim">Decision Support</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface">Insights Feed</h2>
+<p class="mt-4 text-slate-400 max-w-lg leading-relaxed font-body">
+                        AI-curated operational intelligence for <span class="text-on-surface font-semibold">Precision Flow Systems Inc.</span> Data refreshed 14 minutes ago.
+                    </p>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-4 bg-surface-container-low p-1.5 rounded-xl">
+<button class="px-5 py-2 text-xs font-bold text-on-primary-container bg-primary-container rounded-lg">All Priority</button>
+<button class="px-5 py-2 text-xs font-medium text-slate-400 hover:text-white transition-all">High Impact</button>
+<button class="px-5 py-2 text-xs font-medium text-slate-400 hover:text-white transition-all">Unread</button>
+<div class="w-[1px] h-4 bg-white/10 mx-1"></div>
+<button class="p-2 text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Asymmetric Bento-style Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- HIGHLIGHTED INSIGHT (EXPANDED) -->
+<article class="col-span-12 lg:col-span-8 bg-surface-container rounded-xl overflow-hidden shadow-2xl relative border-l-4 border-primary-container">
+<div class="p-10 flex flex-col md:flex-row gap-10">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary/10 text-primary-fixed-dim px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-md">Pricing Optimization</span>
+<span class="text-slate-500 text-[10px] font-medium">• 2h ago</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4 leading-tight">Underperforming Backflow Test Rates in Zip Code 90210</h3>
+<p class="text-slate-400 leading-relaxed mb-8">
+                                Market analysis indicates your current base rate for residential backflow testing ($85.00) is 14% below the local competitive median ($99.00). Competitors have adjusted for rising certification fuel surcharges while your rates remained static for 18 months.
+                            </p>
+<div class="flex flex-wrap gap-8 items-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Estimated Impact</span>
+<span class="text-2xl font-headline font-extrabold text-primary-container">+$3,450/mo</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">Confidence Score</span>
+<span class="text-2xl font-headline font-extrabold text-on-surface">94%</span>
+</div>
+<div class="flex-1 flex justify-end">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-bold rounded-xl hover:opacity-90 transition-all flex items-center gap-3 group">
+                                        See the Plan
+                                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle pattern background -->
+<div class="absolute top-0 right-0 w-64 h-full opacity-5 pointer-events-none overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist geometric network pattern with clean lines and circular nodes representing data connectivity and intelligence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8iBw32M6xI0le3hs7QZcqjdS6mTU9S8DGwdU0pIUMYqxP8H47V4CjKe-hBU477XRT-9YLPn_P6JHH0IYOSwUbKo414W-vKt_dARAMC-kh192SLo-_K-CVl0blLwmQjCLJX0tWHdu5hDWT-w1tLWu4EvC6WFRuKobiXIX_eFMOOGH46-3XF3wtMx0t2ZOBto9Rz4uAF0OnqICrDJR36LCCPCoBHemIo3NK8kDppk_Qm6BSEjYst-BlUhS_I8Fbehr5d3Y4nAuMiROj"/>
+</div>
+</article>
+<!-- SIDE COLUMN INSIGHTS -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Insight Card 2 -->
+<article class="bg-surface-container rounded-xl p-8 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-on-tertiary-fixed-variant/20 text-tertiary px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-md">Tech Performance</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">Route Density Inefficiency</h4>
+<p class="text-sm text-slate-400 leading-relaxed mb-6">Technician 'Miller' is averaging 22 miles between jobs compared to the fleet average of 14.</p>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 mb-1">Impact</span>
+<span class="text-lg font-headline font-bold text-primary-container">+$1,050/mo</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-on-surface">chevron_right</span>
+</div>
+</article>
+<!-- Insight Card 3 -->
+<article class="bg-surface-container rounded-xl p-8 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-secondary-container/30 text-secondary px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-md">Marketing</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">Commercial Lead Spike</h4>
+<p class="text-sm text-slate-400 leading-relaxed mb-6">Unusually high search volume for 'annual RPZ testing' detected in North Industrial sector.</p>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 mb-1">Impact</span>
+<span class="text-lg font-headline font-bold text-primary-container">+$2,100/mo</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-on-surface">chevron_right</span>
+</div>
+</article>
+</div>
+<!-- BOTTOM GRID ROW -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Insight Card 4 -->
+<article class="bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-white/5 text-slate-400 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-md">Supply Chain</span>
+<span class="material-symbols-outlined text-primary/40">trending_up</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-3">Wilkins Valve Shortage</h4>
+<p class="text-sm text-slate-400 leading-relaxed mb-6">Anticipated 15% price hike on 1" RPZ kits next quarter. Suggested bulk order for June.</p>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 mb-1">Cost Savings</span>
+<span class="text-lg font-headline font-bold text-primary-container">+$800/bulk</span>
+</div>
+</article>
+<!-- Insight Card 5 -->
+<article class="bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-6">
+<span class="bg-white/5 text-slate-400 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-md">Retention</span>
+<span class="material-symbols-outlined text-primary/40">group</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-3">Expiring Certifications</h4>
+<p class="text-sm text-slate-400 leading-relaxed mb-6">12 core clients have not re-booked their mandated annual tests for July 2024.</p>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-slate-500 mb-1">At Risk Revenue</span>
+<span class="text-lg font-headline font-bold text-primary-container">+$1,850</span>
+</div>
+</article>
+<!-- Action Card / CTA -->
+<div class="bg-surface-container rounded-xl p-8 flex flex-col justify-center items-center text-center border-2 border-dashed border-white/5">
+<div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-slate-400">lightbulb_outline</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-2">Request Custom Audit</h4>
+<p class="text-sm text-slate-500 mb-6">Have a specific operational question? Ask Cadence Coach.</p>
+<button class="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-all">Start Chat</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Footer Footer -->
+<footer class="max-w-6xl mx-auto px-8 py-12 flex justify-between items-center border-t border-white/5 mt-12">
+<p class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">Page 01 of 14 — Operational Intelligence</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-slate-500 cursor-not-allowed">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</footer>
+</main>
+</body></html>

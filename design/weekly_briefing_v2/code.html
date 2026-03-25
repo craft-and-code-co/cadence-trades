@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadence Trades | Weekly Briefing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#FFBF00", // Amber
+                "on-primary": "#000000",
+                "surface": "#0F1115", // Iron (Solid Dark)
+                "surface-container": "#1C1F26",
+                "surface-container-high": "#252932",
+                "outline-variant": "#3F444D",
+                "on-surface": "#E2E2E6",
+                "on-surface-variant": "#A1A7B3",
+                "error": "#FF5449",
+                "tertiary": "#80DEEA"
+              },
+              fontFamily: {
+                "headline": ["Manrope", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0F1115;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full py-8 px-6 w-64 fixed left-0 top-0 border-r border-outline-variant/20 bg-surface z-40">
+<div class="mb-10">
+<div class="flex flex-col">
+<span class="text-xl font-extrabold tracking-tight text-primary font-headline uppercase leading-tight">Cadence</span>
+<span class="text-xl font-extrabold tracking-tight text-on-surface font-headline uppercase leading-tight -mt-1">Trades</span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em] mt-2 opacity-60">Chief of Staff</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 transition-all text-primary font-bold bg-primary/10 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Weekly Briefing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all text-on-surface-variant font-medium hover:bg-surface-container hover:text-on-surface rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="forum">forum</span>
+<span class="text-sm">Coach Chat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all text-on-surface-variant font-medium hover:bg-surface-container hover:text-on-surface rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="text-sm">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 transition-all text-on-surface-variant font-medium hover:bg-surface-container hover:text-on-surface rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6">
+<button class="w-full py-3.5 px-4 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-[0.98] mb-8 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+<span class="text-sm">New Inquiry</span>
+</button>
+<div class="flex items-center gap-3 px-1">
+<img alt="Josh's profile picture" class="w-10 h-10 rounded-full object-cover border-2 border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6dvZ2uvZ5vwyYKFonGjuIZbWpLqrkzXGylaoOsOkast4YhwTAasEGXI5Ob7GP9wPY1_5i8LB_24UxtMLlgpGrYTKW0gs_OWHA68TlFYLgbLXgq_scYDX1DTLe6eSDgdQ5KhGNHZklY4iY__8MF8dV5Y26ESl4zr7gYol0d2ziixFuJzY6UEbSQz-np5yIIHN7yZcU73Xm65B3UwSI1t_v3jAxN9ekbhVNantvSd0lyxJYwKchnKRw-R2m5eGefw5khQmwMt8uggfj"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate text-on-surface">Josh</p>
+<p class="text-[11px] text-on-surface-variant truncate font-medium">Backflow Services</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-end items-center w-full px-12 py-6 sticky top-0 z-30 ml-64 bg-surface/80 backdrop-blur-md">
+<div class="flex items-center gap-8">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]" data-icon="sync">sync</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span>
+</button>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<img alt="Josh's Avatar" class="w-9 h-9 rounded-full object-cover ring-2 ring-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1ExBWStA9lQ0No9uTFLyyHgbrU6K9WbNCSj4HpEhiJFwH3kRR_-Y6u7-K-v51e3PzuwmblG2Y2S1qx1FqplRzqWy45nBRhCY9Fda53dPSqwrI_T3eOLtGEGaMFUiClyI8Cu3TL3jTi-lKqZZfCS5wx0-X8t_ljPPzS6Q36nGwef_a45WQokPX4qBAoFuhL7iCb8sLM6A7jd073cDa5cbcGH9J_OKhHNioa9oDQahQwRHTAjzXFxKRfWdG2zRY4GUcQK_kmmKAQvXS"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-12 pt-4">
+<div class="max-w-6xl mx-auto space-y-12">
+<!-- Greeting -->
+<header class="space-y-3">
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface">
+                    Morning, Josh. Here's what's happening with <span class="text-primary">Josh's Backflow Services.</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-3xl leading-relaxed">Your Chief of Staff has analyzed the last 7 days of operations. There's significant revenue potential in your current pricing model.</p>
+</header>
+<!-- KPI Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container p-7 rounded-xl border-l-4 border-primary">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Revenue This Week</p>
+<div class="flex items-baseline gap-3">
+<span class="text-4xl font-extrabold font-headline text-on-surface">$4,250</span>
+<span class="text-sm font-bold text-primary flex items-center">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="arrow_upward">arrow_upward</span>
+                            12%
+                        </span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-4 font-medium italic opacity-60">vs last week</p>
+</div>
+<div class="bg-surface-container p-7 rounded-xl border border-outline-variant/20">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Jobs Completed</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline text-on-surface">18</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-4 font-medium">On track for 65 this month</p>
+</div>
+<div class="bg-surface-container p-7 rounded-xl border border-outline-variant/20">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Avg Ticket Price</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-headline text-on-surface">$236</span>
+</div>
+<p class="text-[11px] text-primary mt-4 font-bold tracking-tight uppercase">Steady performance</p>
+</div>
+</section>
+<!-- Main Insight Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Pricing Opportunity Card -->
+<div class="lg:col-span-8 bg-surface-container border border-primary/20 p-10 rounded-2xl relative overflow-hidden">
+<div class="absolute -right-8 -top-8 opacity-[0.03] pointer-events-none">
+<span class="material-symbols-outlined text-[15rem]" data-icon="payments">payments</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-8">
+<span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-[0.15em] border border-primary/20">Chief of Staff Pick</span>
+<span class="text-on-surface-variant/50 text-[11px] font-bold">Calculated 4h ago</span>
+</div>
+<h2 class="text-3xl font-extrabold font-headline text-on-surface mb-6">Pricing Opportunity Found</h2>
+<div class="space-y-8 max-w-2xl">
+<p class="text-xl leading-relaxed text-on-surface-variant">
+                                Your backflow test price is <span class="text-primary font-extrabold underline decoration-2 underline-offset-8">$25 below</span> the regional average of $115.
+                            </p>
+<div class="bg-surface/50 p-6 rounded-xl border border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<span class="font-black text-primary text-[11px] uppercase tracking-widest mb-1">Projected Monthly Impact</span>
+<p class="text-on-surface leading-tight">
+                                        Raising it would add <span class="text-on-surface font-black text-3xl ml-1 tracking-tighter">+$1,050/mo</span>
+<span class="block text-sm text-on-surface-variant mt-2 font-medium italic opacity-70">in pure profit based on your current volume.</span>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-10 py-4 bg-primary text-on-primary font-black rounded-lg shadow-xl shadow-primary/20 hover:brightness-110 transition-all active:scale-[0.98] flex items-center gap-3">
+                                    SEE THE PLAN
+                                    <span class="material-symbols-outlined text-lg font-bold" data-icon="trending_up">trending_up</span>
+</button>
+<button class="px-10 py-4 bg-surface-container-high border border-outline-variant/40 text-on-surface hover:bg-outline-variant/20 transition-all rounded-lg font-bold">
+                                    DISMISS
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Insights Feed -->
+<div class="lg:col-span-4 space-y-6">
+<h3 class="text-[11px] font-black uppercase tracking-[0.2em] text-on-surface-variant/60 ml-1">Secondary Insights</h3>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/20 hover:border-outline-variant/40 transition-all group">
+<div class="flex items-start gap-4">
+<div class="bg-error/10 p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-error text-[22px]" data-icon="calendar_today">calendar_today</span>
+</div>
+<div>
+<h4 class="text-[15px] font-bold text-on-surface mb-1.5">Slow Season Alert</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Historical data shows a <span class="text-error font-bold">15% dip</span> in October. We should prep a renewal campaign next week.</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/20 hover:border-outline-variant/40 transition-all group">
+<div class="flex items-start gap-4">
+<div class="bg-tertiary/10 p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[22px]" data-icon="groups">groups</span>
+</div>
+<div>
+<h4 class="text-[15px] font-bold text-on-surface mb-1.5">Lead Source Insight</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Referral jobs are converting <span class="text-primary font-bold">2x faster</span> than cold calls. Consider a referral bonus.</p>
+</div>
+</div>
+</div>
+<!-- AI Status -->
+<div class="pt-6 px-1">
+<div class="flex items-center gap-3 text-primary/40">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px] font-black uppercase tracking-[0.2em]">Ready for your commands, Josh</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedule -->
+<section class="pt-8">
+<div class="flex items-center justify-between mb-8 px-1">
+<h3 class="text-2xl font-extrabold font-headline text-on-surface">Today's High-Value Stops</h3>
+<button class="text-primary font-black text-[11px] uppercase tracking-widest hover:underline">View Full Schedule</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container p-5 rounded-xl border border-outline-variant/20 flex items-center gap-5">
+<div class="h-12 w-12 bg-surface-container-high rounded-lg flex items-center justify-center text-xs font-black text-primary border border-outline-variant/20">09:00</div>
+<div>
+<p class="text-[15px] font-extrabold text-on-surface">Westside Hospital</p>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">Annual Certification</p>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-outline-variant/20 flex items-center gap-5">
+<div class="h-12 w-12 bg-surface-container-high rounded-lg flex items-center justify-center text-xs font-black text-primary border border-outline-variant/20">11:30</div>
+<div>
+<p class="text-[15px] font-extrabold text-on-surface">Green Valley Apts</p>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">8 Device Audit</p>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border-2 border-primary/30 flex items-center gap-5">
+<div class="h-12 w-12 bg-primary/20 rounded-lg flex items-center justify-center text-xs font-black text-primary border border-primary/30">14:00</div>
+<div>
+<p class="text-[15px] font-extrabold text-on-surface">Commercial Mall</p>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">New Install Quote</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary text-on-primary rounded-2xl shadow-2xl shadow-primary/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[32px] font-bold" data-icon="forum">forum</span>
+</button>
+</body></html>

@@ -33,11 +33,11 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-primary">Cadence Trades</CardTitle>
-          <CardDescription>Sign in to your account</CardDescription>
+          <CardTitle className="text-2xl font-extrabold font-headline text-primary italic">Cadence Trades</CardTitle>
+          <CardDescription className="text-on-surface-variant">Sign in to your account</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
@@ -73,7 +73,7 @@ export default function Login() {
               <Link to="/signup" className="text-primary hover:underline">
                 Create account
               </Link>
-              <Link to="/reset-password" className="text-muted-foreground hover:underline">
+              <Link to="/reset-password" className="text-on-surface-variant hover:underline">
                 Forgot password?
               </Link>
             </div>

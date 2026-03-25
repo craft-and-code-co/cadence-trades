@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "iron-dark": "#0B111D",
+              "iron-surface": "#141C2B",
+              "iron-card": "#1E2638",
+              "amber-primary": "#FFB84D",
+              "amber-muted": "#B47200",
+              "on-surface": "#DAE2FD",
+              "on-surface-variant": "#94A3B8",
+              "outline-variant": "#2D3449"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "1rem"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #0B111D;
+        color: #DAE2FD;
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom scrollbar for chat */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2D3449;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="flex min-h-screen selection:bg-amber-primary/30">
+<!-- SideNavBar -->
+<aside class="h-full w-72 fixed left-0 top-0 bg-iron-dark border-r border-outline-variant/30 flex flex-col py-8 px-6 z-50">
+<div class="mb-12">
+<h1 class="text-2xl font-extrabold tracking-tight text-amber-primary font-headline italic">Cadence Trades</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-1.5 opacity-70">Chief of Staff</p>
+</div>
+<button class="mb-10 w-full bg-amber-primary hover:bg-amber-primary/90 text-iron-dark py-3.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-amber-primary/10">
+<span class="material-symbols-outlined text-[20px] font-bold">add</span>
+            New Inquiry
+        </button>
+<nav class="flex-1 space-y-1.5">
+<a class="flex items-center gap-3.5 py-3 px-4 rounded-xl text-on-surface-variant font-semibold hover:bg-iron-card hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span>Weekly Briefing</span>
+</a>
+<a class="flex items-center gap-3.5 py-3 px-4 rounded-xl text-amber-primary font-bold bg-amber-primary/5 border-r-4 border-amber-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span>Coach Chat</span>
+</a>
+<a class="flex items-center gap-3.5 py-3 px-4 rounded-xl text-on-surface-variant font-semibold hover:bg-iron-card hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">analytics</span>
+<span>Insights</span>
+</a>
+<a class="flex items-center gap-3.5 py-3 px-4 rounded-xl text-on-surface-variant font-semibold hover:bg-iron-card hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="pt-8 border-t border-outline-variant/20 mt-auto flex items-center gap-4">
+<div class="w-11 h-11 rounded-full overflow-hidden border-2 border-outline-variant/30 ring-2 ring-transparent group-hover:ring-amber-primary/20 transition-all">
+<img alt="Josh's profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoQKdZ5JDYIR2F4pW61KTOQLfJDNTdhbawA8D-aqEsyS0nEfjU6uA10pGtXzqbRKuLTZklE8V8hRKlwA20Al-2BxEEzBFGru6-b1lwt_QuFwrvtqgL25aMc76QZ9bUjoKPULIDHPRKNs05bAbuS_JWFv_plLlnCoSoAe_nyE_846pRmT_OYMw4LG1yocwse2zerAf8h5g4iSujRo_4Z0S3JyVtnVkI1l55_6TmzqjBbpxQe3irl2_mI4V4OKU9oV36W4o3-EYSn8Ev"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Josh</span>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Business Owner</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 ml-72 flex flex-col bg-iron-dark min-h-screen relative">
+<!-- TopAppBar -->
+<header class="flex justify-end items-center w-full px-10 py-6 sticky top-0 z-40 bg-iron-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-6">
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">sync</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-amber-primary rounded-full ring-2 ring-iron-dark"></span>
+</button>
+<div class="w-9 h-9 rounded-full overflow-hidden bg-iron-card border border-outline-variant/30">
+<img alt="Josh's Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEtuRp-UmhvyLZp6FQpNaRfkDZ0sEFlfOI2rV5nY-zzFPs3odVeD7nAqyYxH7ho6No_e46eMV5sHWFYPHNer6-6Zm76jH06i1OddD35S23AwnSxaaSyJCp9Q9Qv__hfAW6VnLapapj-9XBDIRYKP_1_mo4dOd0fsd-MPMCuHkLZQ9Lxwpvw_T8XFZlirRSz45yD6yHwPnjl--igQkTgsBdgA3L1INdN1614lylvDo3glJJJVihVXTqEZLlojWW45NdGGTThQCnAbro"/>
+</div>
+</div>
+</header>
+<!-- Chat Container -->
+<div class="flex-1 flex px-10 pb-40 gap-10 max-w-[1440px] mx-auto w-full">
+<!-- Central Conversation -->
+<div class="flex-1 flex flex-col min-w-0">
+<div class="mb-10">
+<h2 class="font-headline font-extrabold text-3xl text-white tracking-tight">Coach Chat</h2>
+<p class="text-on-surface-variant font-body mt-2">Strategizing with your AI Chief of Staff</p>
+</div>
+<!-- Messages -->
+<div class="space-y-8 overflow-y-auto pb-10">
+<!-- Cadence AI Message -->
+<div class="flex gap-5 max-w-[90%] group">
+<div class="flex-shrink-0 w-10 h-10 rounded-xl bg-iron-card flex items-center justify-center border border-outline-variant/30 group-hover:border-amber-primary/30 transition-colors">
+<span class="material-symbols-outlined text-amber-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="bg-iron-surface p-6 rounded-2xl rounded-tl-none border border-outline-variant/20 shadow-sm">
+<p class="text-[15px] text-on-surface leading-relaxed font-body">
+                                    Hi Josh, I've analyzed your recent job data. Your backflow test price of $90 is indeed below the market rate of $115. If you increase it, that's an extra $1,050 a month without doing any more work. Ready to see the plan for how to communicate this to your customers?
+                                </p>
+</div>
+<span class="text-[10px] text-on-surface-variant px-1 uppercase tracking-widest font-bold opacity-60">Cadence AI • Just now</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-5 max-w-[90%] self-end flex-row-reverse group">
+<div class="flex-shrink-0 w-10 h-10 rounded-xl bg-amber-primary/10 flex items-center justify-center border border-amber-primary/20 group-hover:border-amber-primary/40 transition-colors">
+<span class="material-symbols-outlined text-amber-primary text-[24px]">person</span>
+</div>
+<div class="flex flex-col gap-2.5 items-end">
+<div class="bg-iron-card border border-outline-variant/30 p-6 rounded-2xl rounded-tr-none shadow-sm">
+<p class="text-[15px] text-on-surface leading-relaxed font-body">
+                                    Yes, show me the plan. Also, does this factor in the seasonal slowdown we usually see in October?
+                                </p>
+</div>
+<span class="text-[10px] text-on-surface-variant px-1 uppercase tracking-widest font-bold opacity-60">Josh • 2m ago</span>
+</div>
+</div>
+<!-- Insight In-Chat Context -->
+<div class="flex gap-5 max-w-[90%]">
+<div class="w-10 flex-shrink-0"></div> <!-- Spacer for alignment with AI messages -->
+<div class="flex-1 bg-iron-surface/40 border-l-4 border-amber-primary p-6 rounded-r-2xl border-y border-r border-outline-variant/10 flex gap-4 items-start">
+<span class="material-symbols-outlined text-amber-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div>
+<h4 class="font-headline font-bold text-white mb-1.5 uppercase tracking-wide text-xs">Strategic Adjustment Applied</h4>
+<p class="text-on-surface-variant text-[14px] font-body leading-relaxed">
+                                    I've adjusted the forecast. Even with the 15% October slowdown, your net gain remains <span class="text-amber-primary font-bold">+$892.50</span>. This ensures you maintain cash flow during the shoulder season.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Context Panel -->
+<aside class="w-80 hidden xl:block">
+<div class="sticky top-28 space-y-6">
+<!-- Active Insight Card -->
+<div class="bg-iron-surface rounded-2xl p-7 border border-outline-variant/20 overflow-hidden relative shadow-xl">
+<div class="absolute -top-4 -right-4 opacity-[0.03]">
+<span class="material-symbols-outlined text-[120px]">trending_up</span>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-primary animate-pulse"></span>
+<span class="text-[11px] font-extrabold text-amber-primary uppercase tracking-[0.2em]">Active Insight</span>
+</div>
+<h3 class="font-headline font-extrabold text-xl text-white leading-tight mb-2">Backflow Pricing Gap</h3>
+<p class="text-on-surface-variant text-sm font-medium mb-8">Current: $90 vs Market: $115</p>
+<div class="space-y-6">
+<div>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block mb-2">Monthly Revenue Impact</span>
+<div class="text-4xl font-headline font-black text-amber-primary">+$1,050</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider block">Effort Level</span>
+<span class="text-[10px] text-amber-primary font-bold">Low</span>
+</div>
+<div class="flex gap-1.5">
+<div class="h-1.5 flex-1 bg-amber-primary rounded-full"></div>
+<div class="h-1.5 flex-1 bg-iron-card rounded-full"></div>
+<div class="h-1.5 flex-1 bg-iron-card rounded-full"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant mt-3 block leading-snug">Customer Email Campaign required for implementation.</span>
+</div>
+</div>
+</div>
+<!-- Quick References Card -->
+<div class="bg-iron-surface/50 rounded-2xl p-7 border border-outline-variant/10">
+<span class="text-[11px] font-extrabold text-on-surface-variant uppercase tracking-[0.2em] mb-6 block">Quick References</span>
+<ul class="space-y-4">
+<li class="flex items-center gap-3.5 text-sm text-on-surface hover:text-amber-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-amber-primary">description</span>
+<span class="font-medium">2023 Pricing Audit.pdf</span>
+</li>
+<li class="flex items-center gap-3.5 text-sm text-on-surface hover:text-amber-primary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-amber-primary">group</span>
+<span class="font-medium">Customer Retention Data</span>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+<!-- Sticky Input Area -->
+<div class="fixed bottom-0 right-0 left-72 p-10 bg-iron-dark/95 backdrop-blur-sm z-50">
+<div class="max-w-4xl mx-auto flex gap-5 items-end">
+<div class="flex-1 bg-iron-card rounded-2xl border border-outline-variant/30 focus-within:border-amber-primary/40 focus-within:ring-1 focus-within:ring-amber-primary/40 transition-all p-2 flex items-center shadow-2xl">
+<button class="p-3.5 text-on-surface-variant hover:text-amber-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 py-3.5 px-3 resize-none font-body text-[15px]" placeholder="Ask Cadence anything..." rows="1"></textarea>
+<button class="p-3.5 text-on-surface-variant hover:text-amber-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+</div>
+<button class="bg-amber-primary hover:bg-amber-primary/90 h-[60px] w-[60px] rounded-2xl text-iron-dark flex items-center justify-center shadow-xl shadow-amber-primary/10 hover:shadow-amber-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[26px] font-bold" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

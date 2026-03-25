@@ -31,10 +31,10 @@ export default function ResetPassword() {
 
   if (sent) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4 bg-surface">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-primary">Check your email</CardTitle>
+            <CardTitle className="text-2xl font-extrabold font-headline text-primary italic">Check your email</CardTitle>
             <CardDescription>
               If an account exists for <strong>{email}</strong>, we sent a password reset link.
             </CardDescription>
@@ -50,10 +50,10 @@ export default function ResetPassword() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-primary">Reset password</CardTitle>
+          <CardTitle className="text-2xl font-extrabold font-headline text-primary italic">Reset password</CardTitle>
           <CardDescription>Enter your email and we'll send a reset link</CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ export default function ResetPassword() {
             <Button type="submit" className="w-full" disabled={submitting}>
               {submitting ? 'Sending...' : 'Send reset link'}
             </Button>
-            <Link to="/login" className="text-sm text-muted-foreground hover:underline">
+            <Link to="/login" className="text-sm text-on-surface-variant hover:underline">
               Back to sign in
             </Link>
           </CardFooter>

@@ -29,7 +29,7 @@ export function StepBusinessBasics({ data, onChange }: Props) {
         </Label>
         <select
           id="trade"
-          className="flex h-10 w-full rounded-md border border-input bg-input px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex h-10 w-full rounded-lg border-0 border-b-2 border-b-transparent bg-surface-container-highest px-3 py-2 text-sm text-on-surface outline-none focus:border-b-primary-container"
           value={data.trade}
           onChange={(e) => onChange({ trade: e.target.value as OnboardingData['trade'] })}
         >
@@ -69,7 +69,7 @@ export function StepBusinessBasics({ data, onChange }: Props) {
           <Label htmlFor="revenue_range">Annual revenue</Label>
           <select
             id="revenue_range"
-            className="flex h-10 w-full rounded-md border border-input bg-input px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex h-10 w-full rounded-lg border-0 border-b-2 border-b-transparent bg-surface-container-highest px-3 py-2 text-sm text-on-surface outline-none focus:border-b-primary-container"
             value={data.revenue_range}
             onChange={(e) =>
               onChange({ revenue_range: e.target.value as OnboardingData['revenue_range'] })

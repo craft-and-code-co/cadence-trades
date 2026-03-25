@@ -38,22 +38,22 @@ export function ManualJobTable({ rows, onUpdate, onRemove, onAdd }: Props) {
 
   return (
     <>
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <div className="overflow-x-auto rounded-lg border border-outline-variant/20">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-border bg-muted">
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground">Date *</th>
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground">Service</th>
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground">Tech</th>
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground w-20">Hours</th>
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground w-28">Revenue *</th>
-              <th className="px-3 py-2 text-left font-medium text-muted-foreground">Lead Source</th>
+            <tr className="border-b border-outline-variant/20 bg-surface-container-low">
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant">Date *</th>
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant">Service</th>
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant">Tech</th>
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant w-20">Hours</th>
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant w-28">Revenue *</th>
+              <th className="px-3 py-2 text-left font-medium text-on-surface-variant">Lead Source</th>
               <th className="px-3 py-2 w-10" />
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id} className="border-b border-border last:border-0">
+              <tr key={row.id} className="border-b border-outline-variant/20 last:border-0">
                 <td className="px-2 py-1.5">
                   <Input
                     type="date"
@@ -114,7 +114,7 @@ export function ManualJobTable({ rows, onUpdate, onRemove, onAdd }: Props) {
                 <td className="px-2 py-1.5">
                   <button
                     onClick={() => onRemove(row.id)}
-                    className="text-muted-foreground hover:text-destructive transition-colors p-1"
+                    className="text-on-surface-variant hover:text-destructive transition-colors p-1"
                     disabled={rows.length === 1}
                   >
                     <Trash2 className="h-4 w-4" />
