@@ -10,6 +10,8 @@ import Briefing from '@/pages/Briefing'
 import Coach from '@/pages/Coach'
 import Settings from '@/pages/Settings'
 import Onboarding from '@/pages/Onboarding'
+import ImportCsv from '@/pages/ImportCsv'
+import ImportManual from '@/pages/ImportManual'
 
 export default function App() {
   return (
@@ -27,6 +29,24 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Onboarding />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Protected: import flows (no app shell) */}
+          <Route
+            path="/import/csv"
+            element={
+              <ProtectedRoute>
+                <ImportCsv />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/import/manual"
+            element={
+              <ProtectedRoute>
+                <ImportManual />
               </ProtectedRoute>
             }
           />

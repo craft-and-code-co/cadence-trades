@@ -1,0 +1,4 @@
+date,service_type,tech_name,hours,revenue,lead_source,customer_name,customer_zip
+2024-01-15,AC Repair,Mike Johnson,2.5,450,google,Jane Smith,75201
+2024-01-16,Furnace Install,Dave Williams,6,4200,referral,Bob Chen,75202
+2024-01-17,Maintenance,Mike Johnson,1,189,repeat,Sarah Davis,75201

@@ -19,8 +19,9 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     return <Navigate to="/login" replace />
   }
 
-  // Redirect to onboarding if profile isn't complete (unless already on onboarding)
-  if (!profile?.onboarding_complete && location.pathname !== '/onboarding') {
+  // Redirect to onboarding if profile isn't complete (unless on onboarding or import flows)
+  const bypassPaths = ['/onboarding', '/import/csv', '/import/manual']
+  if (!profile?.onboarding_complete && !bypassPaths.includes(location.pathname)) {
     return <Navigate to="/onboarding" replace />
   }
 

@@ -1,0 +1,6 @@
+service_name,category,flat_rate_price,estimated_hours,parts_cost_estimate
+AC Diagnostic,HVAC,89,1,0
+AC Repair - Capacitor,HVAC,285,1.5,45
+Furnace Tune-Up,HVAC,189,1,10
+Water Heater Install,Plumbing,2800,4,1200
+Drain Cleaning,Plumbing,295,1.5,15
