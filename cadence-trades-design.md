@@ -48,6 +48,8 @@ Two paths exist today:
 
 The wedge is NOT a dashboard. It's a weekly email with a specific dollar figure and a specific action — with an app behind it for going deeper.
 
+**Launch Trades:** HVAC, Plumbing, Electrical, Backflow. Market benchmarks curated for these four trades at launch. Additional trades added based on user demand.
+
 ## Constraints
 
 - Josh is not tech savvy — UX must be radically simple by default
@@ -108,7 +110,8 @@ Build for consultants (like the founder) who serve multiple trades businesses. M
 - CSV import (required for launch) + Jobber OAuth integration (stretch for V1; required for V1.1)
 - AI insight engine (generates specific recommendations with dollar projections — see Insight Engine Data Model below)
 - Conversational coach (RAG-powered, data-aware)
-- Push notifications (email, stretch: SMS)
+- Push email system via Resend (Monday morning insight emails — core engagement channel)
+- Scheduled analysis via pg_cron (daily insight generation)
 - Weekly briefing home screen
 - Basic settings
 
@@ -125,7 +128,7 @@ Build for consultants (like the founder) who serve multiple trades businesses. M
 The insight engine generates dollar projections by combining three inputs:
 
 1. **Owner's operational data** (from CSV/Jobber): job history, pricing, volume, technician performance, customer records. Minimum viable data: 30+ jobs with dates, service types, and revenue amounts.
-2. **Market benchmarks** (founder-curated for V1): The founder provides market rate ranges by trade and region based on consulting experience. Stored as structured data in Supabase. Benchmarks spot-checked against 2-3 public data sources (HomeAdvisor, Angi, BLS data) per trade before launch to establish baseline accuracy. V2: supplement with third-party data APIs or crowd-sourced pricing from the user base.
+2. **Market benchmarks** (founder-curated for V1): Market rate ranges by trade and region for **four launch trades: HVAC, Plumbing, Electrical, Backflow**. Stored as structured data in Supabase. Benchmarks spot-checked against 2-3 public data sources (HomeAdvisor, Angi, BLS data) per trade before launch to establish baseline accuracy. Benchmark source/range shown to users alongside projections for transparency. V2: supplement with third-party data APIs or crowd-sourced pricing from the user base.
 3. **Coaching knowledge base** (RAG): Trades-specific strategies for pricing, hiring, marketing, operations. Retrieved via pgvector semantic search.
 
 **Dollar projection formula:** `(benchmark_rate - current_rate) x monthly_volume = projected_monthly_impact`. For non-pricing insights (e.g., customer retention), projections use: `(opportunity_count x avg_ticket x conversion_estimate)`. All projections labeled as estimates. Confidence indicator based on data volume: <50 jobs = "early estimate," 50-200 jobs = "based on your data," >200 jobs = "high confidence."
@@ -160,11 +163,11 @@ Visual sketch at `/tmp/gstack-sketch-cadence.html` — open locally to view. Sho
 
 ## Dependencies
 
-- Supabase project setup (auth, database, edge functions, pgvector)
+- Supabase project setup (auth, database, edge functions, pgvector, pg_cron for scheduled analysis)
 - OpenRouter API access for AI calls (Claude Sonnet via OpenRouter)
-- Jobber API access (OAuth application submitted in week 1 — approval may take days/weeks. NOT on the critical path; V1 launches with CSV only. Jobber integration ships as a fast-follow once approved.)
-- Knowledge base content: Founder to deliver initial knowledge base (target: 50+ documents covering pricing, hiring, marketing, membership, seasonal planning, and operations for trades businesses) by end of week 1. Insufficient KB content is a launch blocker — RAG quality depends directly on KB coverage. **Fallback:** If KB is below 30 documents by end of week 2, V1 coach chat launches with a curated FAQ mode (pre-written Q&A pairs) instead of open-ended RAG, to avoid low-quality AI responses.
-- Email delivery service (Resend, SendGrid, or Supabase built-in)
+- Jobber API access (OAuth application submitted in week 1 — approval may take days/weeks. NOT on the critical path; V1 launches with CSV only. Jobber integration ships as a fast-follow once approved. Jobber is the first integration; architecture should support adding Housecall Pro, ServiceTitan, and others post-launch.)
+- Knowledge base content: Founder has existing content library covering pricing, hiring, marketing, membership, seasonal planning, and operations for trades businesses. Chunk, embed, and load during week 1.
+- Email delivery service: **Resend** (selected for DX simplicity and deliverability). Email is a core engagement channel, not an afterthought — treat as build priority alongside push system.
 
 ## The Assignment
 

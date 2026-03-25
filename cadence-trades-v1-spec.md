@@ -31,7 +31,7 @@
 > | Edge Functions — `embed-documents` | **USE AS-IS** | KB seeding utility |
 > | AI Insight Engine | **USE AS-IS** | All metric aggregations and insight types |
 > | Coach Page | **USE AS-IS** | Primary deep-dive interface |
-> | Knowledge Base + Seeding | **USE AS-IS** | Launch blocker — need 50+ docs by week 1 |
+> | Knowledge Base + Seeding | **USE AS-IS** | Founder has existing content library — chunk, embed, and load in week 1 |
 > | Environment Variables | **USE AS-IS** | No changes |
 > | Cloudflare Pages Deployment | **USE AS-IS** | No changes |
 >
@@ -55,17 +55,19 @@
 > | **Insight Engine Data Model** | Dollar projections: `(benchmark - current) x volume`. Market benchmarks founder-curated, spot-checked against HomeAdvisor/Angi/BLS. Confidence tiers: <50 jobs = "early estimate," 50-200 = "based on your data," >200 = "high confidence." |
 > | **Minimum Data Threshold** | 30+ jobs required before insight engine generates recommendations. Below that: "keep logging jobs" message. |
 > | **KB Fallback Mode** | If knowledge base has <30 documents by week 2, coach chat launches with curated FAQ pairs instead of open-ended RAG. |
+| **Scheduled Analysis (pg_cron)** | Use Supabase `pg_cron` extension to trigger `analyze-data` on a daily schedule. Generates fresh insights and powers the Monday morning push email. |
+| **Email Delivery (Resend)** | Resend selected as email provider for push notifications. Core engagement channel — not a dependency, a feature. Build priority alongside push system. |
 >
 > ### V1 Build Priority (revised)
-> 1. Supabase project setup + schema migration (including pgvector)
+> 1. Supabase project setup + schema migration (including pgvector, pg_cron)
 > 2. Auth (signup, login, password reset)
 > 3. Onboarding flow (simplified — Steps 1-4)
 > 4. CSV import + manual entry
-> 5. Knowledge base: write 50+ markdown docs + run seed script
-> 6. Edge Functions: `analyze-data` + `generate-insight` + `coach-chat` + `embed-documents`
+> 5. Knowledge base: chunk, embed, and load founder's existing content library via seed script
+> 6. Edge Functions: `analyze-data` (with pg_cron daily schedule) + `generate-insight` + `coach-chat` + `embed-documents`
 > 7. Weekly Briefing screen (replaces dashboard)
 > 8. Coach chat page with full RAG
-> 9. Push email system (weekly insight email)
+> 9. Push email system via Resend (Monday morning insight email — core engagement channel)
 > 10. Basic settings page
 > 11. Polish: empty states, loading states, error handling, min-data-threshold UX
 > 12. Cloudflare Pages deployment + Supabase production setup
@@ -371,14 +373,23 @@ create table roi_events (
   created_at timestamptz default now()
 );
 
--- Coach chat history
+-- Coach chat conversations (thread metadata)
 create table coach_conversations (
   id uuid primary key default gen_random_uuid(),
   company_id uuid references company_profiles not null,
-  messages jsonb not null default '[]', -- array of {role, content, timestamp}
   topic text,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
+);
+
+-- Coach chat messages (individual messages, queryable and pageable)
+create table coach_messages (
+  id uuid primary key default gen_random_uuid(),
+  conversation_id uuid references coach_conversations not null,
+  company_id uuid references company_profiles not null,
+  role text not null,              -- 'user' | 'assistant'
+  content text not null,
+  created_at timestamptz default now()
 );
 
 -- RAG knowledge base documents
@@ -396,10 +407,9 @@ create table knowledge_documents (
   created_at timestamptz default now()
 );
 
--- Index for fast cosine similarity search
+-- Index for fast cosine similarity search (HNSW works well at any scale, no reindexing needed)
 create index on knowledge_documents
-  using ivfflat (embedding vector_cosine_ops)
-  with (lists = 100);
+  using hnsw (embedding vector_cosine_ops);
 
 -- Helper function for semantic search (called from Edge Functions)
 create or replace function match_knowledge_documents(
@@ -452,10 +462,10 @@ create table data_connections (
 ### Priority Order for V1:
 1. **CSV Import** (launch with this -- broadest compatibility)
 2. **Manual Entry** (simple table UI)
-3. **Housecall Pro** (good API, accessible)
-4. **Jobber** (good API, accessible)
+3. **Jobber** (first integration — Josh uses Jobber, OAuth app submitted week 1)
+4. **Housecall Pro** (post-launch, good API)
 
-ServiceTitan is the dominant platform but has a locked, expensive API. Roadmap for V2.
+Architecture should support pluggable integrations — each platform normalizes into the same `jobs` schema. ServiceTitan is the dominant platform but has a locked, expensive API. Roadmap for V2+.
 
 ### CSV Import
 Provide downloadable template CSVs for:
@@ -483,7 +493,7 @@ Use their OAuth flows. Store refresh tokens in Supabase (encrypted via Vault). R
 All AI calls route through Edge Functions. Never call OpenRouter from the client.
 
 ### `analyze-data`
-Triggered manually or on a schedule (daily). Reads the company's recent jobs data, aggregates key metrics, and passes them to OpenRouter with the company profile as context. Returns structured insight objects that get written to the `insights` table.
+Triggered daily via Supabase `pg_cron` extension. Reads the company's recent jobs data, aggregates key metrics, and passes them to OpenRouter with the company profile as context. Returns structured insight objects that get written to the `insights` table. Also powers the Monday morning push email (highest-priority insight selected and sent via Resend).
 
 **Model:** Use `anthropic/claude-sonnet-4-5` via OpenRouter for analysis tasks.
 
@@ -877,8 +887,8 @@ These are explicitly excluded from V1 to keep scope tight:
 2. Auth (signup, login, password reset)
 3. Onboarding flow (company profile collection)
 4. Data import (CSV upload + manual entry)
-5. Knowledge base: write initial markdown documents + run seed script to populate pgvector
-6. Edge Functions: analyze-data + generate-insight
+5. Knowledge base: chunk, embed, and load founder's existing content library into pgvector via seed script
+6. Edge Functions: analyze-data (with pg_cron scheduling) + generate-insight
 7. Dashboard (KPIs + insight cards)
 8. Insights page (full list + detail + action plan)
 9. Coach chat with full RAG (embed query > vector search > inject context > LLM call)
