@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,6 +14,7 @@ export default function Signup() {
   const [submitting, setSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
   const { signUp } = useAuth()
+  const navigate = useNavigate()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -29,7 +30,7 @@ export default function Signup() {
     }
 
     setSubmitting(true)
-    const { error } = await signUp(email, password)
+    const { error, session } = await signUp(email, password)
     setSubmitting(false)
 
     if (error) {
@@ -37,6 +38,13 @@ export default function Signup() {
       return
     }
 
+    // If Supabase returned a session, email confirmation is disabled — go straight in
+    if (session) {
+      navigate('/')
+      return
+    }
+
+    // Otherwise, email confirmation is required
     setSent(true)
     toast.success('Check your email for a confirmation link.')
   }
