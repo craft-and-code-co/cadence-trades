@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/hooks/useAuth'
+import { useCompanyProfile } from '@/hooks/useCompanyProfile'
 import { Button } from '@/components/ui/button'
 import { OnboardingProgress } from '@/components/onboarding/OnboardingProgress'
 import { StepBusinessBasics } from '@/components/onboarding/StepBusinessBasics'
@@ -15,6 +16,7 @@ import { INITIAL_ONBOARDING_DATA, type OnboardingData } from '@/components/onboa
 
 export default function Onboarding() {
   const { user } = useAuth()
+  const { refetch } = useCompanyProfile()
   const navigate = useNavigate()
   const [step, setStep] = useState(0)
   const [data, setData] = useState<OnboardingData>(INITIAL_ONBOARDING_DATA)
@@ -25,7 +27,7 @@ export default function Onboarding() {
   }
 
   const canAdvance = (): boolean => {
-    if (step === 0) return data.company_name.trim() !== '' && data.trade !== ''
+    if (step === 0) return data.company_name.trim() !== '' && data.trades.length > 0
     if (step === 3) return data.pain_points.length > 0
     return true
   }
@@ -38,7 +40,8 @@ export default function Onboarding() {
       {
         user_id: user.id,
         company_name: data.company_name.trim(),
-        trade: data.trade || 'other',
+        trade: data.trades[0] || 'other',
+        additional_trades: data.trades.slice(1),
         service_area: data.service_area || null,
         years_in_business: data.years_in_business ? parseInt(data.years_in_business) : null,
         revenue_range: data.revenue_range || null,
@@ -51,7 +54,7 @@ export default function Onboarding() {
           : null,
         field_service_platform: data.field_service_platform || null,
         tracks_marketing: data.tracks_marketing || null,
-        runs_paid_ads: data.runs_paid_ads || null,
+        runs_paid_ads: data.marketing_channels.filter((c) => c !== 'none'),
         has_membership: data.has_membership,
         membership_description: data.membership_description || null,
         pain_points: data.pain_points,
@@ -85,6 +88,7 @@ export default function Onboarding() {
   const handleDataChoice = async (choice: 'csv' | 'manual' | 'skip') => {
     const saved = await saveProfile()
     if (!saved) return
+    await refetch()
 
     if (choice === 'csv') {
       navigate('/import/csv')

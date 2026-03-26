@@ -1,5 +1,6 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Icon } from '@/components/ui/icon'
 import type { OnboardingData } from './types'
 
 interface Props {
@@ -12,7 +13,15 @@ export function StepTeamStructure({ data, onChange }: Props) {
     <div className="space-y-5">
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="tech_count">Field technicians</Label>
+          <Label htmlFor="tech_count">
+            Field technicians{' '}
+            <span
+              className="inline-flex align-middle cursor-help text-on-surface-variant/60 hover:text-on-surface-variant"
+              title="Count all techs who run service calls or installs, including yourself if you're in the field."
+            >
+              <Icon name="help_outline" size={16} />
+            </span>
+          </Label>
           <Input
             id="tech_count"
             type="number"
@@ -61,7 +70,15 @@ export function StepTeamStructure({ data, onChange }: Props) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="avg_tech_hourly_cost">Average tech hourly cost (fully burdened)</Label>
+        <Label htmlFor="avg_tech_hourly_cost">
+          Average tech hourly cost (fully burdened){' '}
+          <span
+            className="inline-flex align-middle cursor-help text-on-surface-variant/60 hover:text-on-surface-variant"
+            title="This is the TOTAL cost per hour including wages, payroll taxes (~15%), workers comp, health insurance, vehicle costs, tools, and uniforms. A tech earning $25/hr typically costs $42-50/hr fully burdened."
+          >
+            <Icon name="help_outline" size={16} />
+          </span>
+        </Label>
         <div className="relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">
             $

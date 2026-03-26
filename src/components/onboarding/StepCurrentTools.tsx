@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { PLATFORM_OPTIONS, AD_OPTIONS } from './constants'
+import { Icon } from '@/components/ui/icon'
+import { PLATFORM_OPTIONS, MARKETING_CHANNEL_OPTIONS } from './constants'
 import type { OnboardingData } from './types'
 
 interface Props {
@@ -9,6 +10,18 @@ interface Props {
 }
 
 export function StepCurrentTools({ data, onChange }: Props) {
+  const toggleChannel = (value: string) => {
+    if (value === 'none') {
+      onChange({ marketing_channels: data.marketing_channels.includes('none') ? [] : ['none'] })
+      return
+    }
+    const without = data.marketing_channels.filter((c) => c !== 'none')
+    const next = without.includes(value)
+      ? without.filter((c) => c !== value)
+      : [...without, value]
+    onChange({ marketing_channels: next })
+  }
+
   return (
     <div className="space-y-5">
       <div className="space-y-2">
@@ -33,7 +46,15 @@ export function StepCurrentTools({ data, onChange }: Props) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="tracks_marketing">How do you track marketing?</Label>
+        <Label htmlFor="tracks_marketing">
+          How do you track marketing?{' '}
+          <span
+            className="inline-flex align-middle cursor-help text-on-surface-variant/60 hover:text-on-surface-variant"
+            title="How do you know which marketing brings in calls? Examples: call tracking numbers, Google Analytics, asking customers, or nothing yet."
+          >
+            <Icon name="help_outline" size={16} />
+          </span>
+        </Label>
         <Input
           id="tracks_marketing"
           placeholder="e.g. Google Analytics, spreadsheet, or 'I don't'"
@@ -42,23 +63,25 @@ export function StepCurrentTools({ data, onChange }: Props) {
         />
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="runs_paid_ads">Paid advertising?</Label>
-        <select
-          id="runs_paid_ads"
-          className="flex h-10 w-full rounded-lg border-0 border-b-2 border-b-transparent bg-surface-container-highest px-3 py-2 text-sm text-on-surface outline-none focus:border-b-primary-container"
-          value={data.runs_paid_ads}
-          onChange={(e) =>
-            onChange({ runs_paid_ads: e.target.value as OnboardingData['runs_paid_ads'] })
-          }
-        >
-          <option value="">Select option</option>
-          {AD_OPTIONS.map((a) => (
-            <option key={a.value} value={a.value}>
-              {a.label}
-            </option>
+      <div className="space-y-3">
+        <Label>Marketing channels</Label>
+        <p className="text-sm text-muted-foreground">Select all that you use.</p>
+        <div className="grid grid-cols-2 gap-2">
+          {MARKETING_CHANNEL_OPTIONS.map((ch) => (
+            <button
+              key={ch.value}
+              type="button"
+              onClick={() => toggleChannel(ch.value)}
+              className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors text-left ${
+                data.marketing_channels.includes(ch.value)
+                  ? 'bg-primary/15 text-primary'
+                  : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
+              }`}
+            >
+              {ch.label}
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
       <div className="space-y-3">

@@ -26,6 +26,23 @@ export type FieldServicePlatform =
 
 export type AdPlatform = 'google' | 'facebook' | 'both' | 'neither'
 
+export type MarketingChannel =
+  | 'google_search'
+  | 'google_lsa'
+  | 'facebook'
+  | 'instagram'
+  | 'nextdoor'
+  | 'yelp'
+  | 'thumbtack'
+  | 'angi'
+  | 'direct_mail'
+  | 'door_hangers'
+  | 'truck_wraps'
+  | 'radio_tv'
+  | 'seo'
+  | 'referral_program'
+  | 'none'
+
 export type PainPoint =
   | 'finding_keeping_techs'
   | 'slow_seasons'
@@ -74,7 +91,8 @@ export type CompanyProfile = {
   avg_tech_hourly_cost: number | null
   field_service_platform: FieldServicePlatform | null
   tracks_marketing: string | null
-  runs_paid_ads: AdPlatform | null
+  additional_trades: string[] | null
+  runs_paid_ads: string[] | null
   has_membership: boolean | null
   membership_description: string | null
   pain_points: PainPoint[] | null

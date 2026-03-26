@@ -1,4 +1,4 @@
-import type { Trade, RevenueRange, FieldServicePlatform, AdPlatform, PainPoint } from '@/types/database'
+import type { Trade, RevenueRange, FieldServicePlatform, PainPoint } from '@/types/database'
 
 export const TRADE_OPTIONS: { value: Trade; label: string }[] = [
   { value: 'hvac', label: 'HVAC' },
@@ -27,11 +27,22 @@ export const PLATFORM_OPTIONS: { value: FieldServicePlatform; label: string }[] 
   { value: 'other', label: 'Other' },
 ]
 
-export const AD_OPTIONS: { value: AdPlatform; label: string }[] = [
-  { value: 'google', label: 'Google Ads' },
-  { value: 'facebook', label: 'Facebook/Meta Ads' },
-  { value: 'both', label: 'Both' },
-  { value: 'neither', label: 'Neither' },
+export const MARKETING_CHANNEL_OPTIONS: { value: string; label: string }[] = [
+  { value: 'google_search', label: 'Google Search Ads' },
+  { value: 'google_lsa', label: 'Google Local Services Ads' },
+  { value: 'facebook', label: 'Facebook / Meta Ads' },
+  { value: 'instagram', label: 'Instagram Ads' },
+  { value: 'nextdoor', label: 'Nextdoor' },
+  { value: 'yelp', label: 'Yelp Ads' },
+  { value: 'thumbtack', label: 'Thumbtack' },
+  { value: 'angi', label: 'Angi / HomeAdvisor' },
+  { value: 'direct_mail', label: 'Direct Mail / Postcards' },
+  { value: 'door_hangers', label: 'Door Hangers / Flyers' },
+  { value: 'truck_wraps', label: 'Vehicle Wraps' },
+  { value: 'radio_tv', label: 'Radio / TV' },
+  { value: 'seo', label: 'SEO / Organic Search' },
+  { value: 'referral_program', label: 'Referral Program' },
+  { value: 'none', label: 'No paid marketing yet' },
 ]
 
 export const PAIN_POINT_OPTIONS: { value: PainPoint; label: string }[] = [

@@ -2,14 +2,13 @@ import type {
   Trade,
   RevenueRange,
   FieldServicePlatform,
-  AdPlatform,
   PainPoint,
 } from '@/types/database'
 
 export interface OnboardingData {
   // Step 1: Business Basics
   company_name: string
-  trade: Trade | ''
+  trades: Trade[]
   service_area: string
   years_in_business: string
   revenue_range: RevenueRange | ''
@@ -24,7 +23,7 @@ export interface OnboardingData {
   // Step 3: Current Tools
   field_service_platform: FieldServicePlatform | ''
   tracks_marketing: string
-  runs_paid_ads: AdPlatform | ''
+  marketing_channels: string[]
   has_membership: boolean
   membership_description: string
 
@@ -35,7 +34,7 @@ export interface OnboardingData {
 
 export const INITIAL_ONBOARDING_DATA: OnboardingData = {
   company_name: '',
-  trade: '',
+  trades: [],
   service_area: '',
   years_in_business: '',
   revenue_range: '',
@@ -46,7 +45,7 @@ export const INITIAL_ONBOARDING_DATA: OnboardingData = {
   avg_tech_hourly_cost: '',
   field_service_platform: '',
   tracks_marketing: '',
-  runs_paid_ads: '',
+  marketing_channels: [],
   has_membership: false,
   membership_description: '',
   pain_points: [],
